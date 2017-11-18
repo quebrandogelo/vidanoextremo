@@ -6,8 +6,9 @@
 
 .parallax-container {
 	height: 200px;
+	margin-top: 48px;
 }
 
-nav .brand-logo {
-	color: inherit;
+nav .brand-logo, nav .tabs .tab a {
+	color: inherit !important;
 }

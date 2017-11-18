@@ -12,7 +12,7 @@ $('a').click(function(e) {
 	
 	let href = $(this).attr('href');
 	
-	if(href == '#') return;
+	if(href.substr(0, 1) == '#') return;
 	
 	$.ajax({
 		method: 'GET',
