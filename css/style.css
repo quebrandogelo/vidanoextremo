@@ -12,3 +12,8 @@
 nav .brand-logo, nav .tabs .tab a {
 	color: inherit !important;
 }
+
+.navbar-fixed {
+	transition: top .2s;
+	-webkit-transition: top .2s; /* Safari */
+}
