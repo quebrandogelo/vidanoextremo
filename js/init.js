@@ -4,10 +4,13 @@ let lastScrollTop 	= 0;
 let st 				= {};
 let $navbar			= $('.navbar-fixed');
 let path			= '';
+let $tabs			= $('.tabs');
+let $window			= $(window);
 
 // SPA
 $('a').click(function(e) {
-	path = $(this).attr('href');
+	let $this	= $(this)
+	path 		= $this.attr('href');
 	
 	// scroll até o topo da página
 	window.scrollTo(0, 0);
@@ -22,9 +25,22 @@ $('a').click(function(e) {
 		dataType: 'text',
 		
 		success: function(data) {
+			$tabs.off();
 			$content.html(data);
 		}
 	});
+	
+	// navbar scroll
+	if(path == 'home') {
+		$window.off('scroll');
+		$navbar.attr('style', 'top: 0;');
+	} else {
+		$window.scroll(function(){
+			st = $(this).scrollTop();
+			$navbar.attr('style', 'top: ' + (st > lastScrollTop ? '-56' : '0') + 'px;');
+			lastScrollTop = st;
+		});
+	}
 	
 	// fecha o menu lateral
 	sidenav.close();
@@ -34,20 +50,13 @@ $('a').click(function(e) {
 	
 	// ativa item do menu
 	$('.sidenav li.active').removeClass('active');
-	$(this).parent().addClass('active');
+	$this.parent().addClass('active');
 	
 	// altera URL
 	window.history.pushState("string", "Title", "#" + path);
 });
 
 $('.sidenav > li > a[href=' + getPath() + ']').click();
-
-// navbar scroll
-$(window).scroll(function(){
-	st = $(this).scrollTop();
-	$navbar.attr('style', 'top: ' + (st > lastScrollTop ? '-56' : '0') + 'px;');
-	lastScrollTop = st;
-});
 
 FastClick.attach(document.body);
 
