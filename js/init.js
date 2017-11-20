@@ -3,14 +3,14 @@ let $content 		= $('#content');
 let lastScrollTop 	= 0;
 let st 				= {};
 let $navbar			= $('.navbar-fixed');
-let currentPath		= getPath();
 let path			= '';
 
 // SPA
 $('a').click(function(e) {
-	currentUrl 	= document.URL;
-	currentPath = currentUrl.substr(currentUrl.lastIndexOf('#') + 1);
-	path 		= $(this).attr('href');
+	path = $(this).attr('href');
+	
+	// scroll até o topo da página
+	window.scrollTo(0, 0);
 	
 	e.preventDefault();
 	
@@ -26,6 +26,7 @@ $('a').click(function(e) {
 		}
 	});
 	
+	// fecha o menu lateral
 	sidenav.close();
 	
 	// remove abas na home page
@@ -39,7 +40,7 @@ $('a').click(function(e) {
 	window.history.pushState("string", "Title", "#" + path);
 });
 
-$('.sidenav > li > a[href=' + currentPath + ']').click();
+$('.sidenav > li > a[href=' + getPath() + ']').click();
 
 // navbar scroll
 $(window).scroll(function(){
