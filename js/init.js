@@ -6,15 +6,15 @@ let $navbar			= $('.navbar-fixed');
 let currentPath		= getPath();
 let path			= '';
 
-console.log(currentPath);
-
 // SPA
 $('a').click(function(e) {
 	currentUrl 	= document.URL;
 	currentPath = currentUrl.substr(currentUrl.lastIndexOf('#') + 1);
 	path 		= $(this).attr('href');
 	
-	if(path.substr(0, 1) === '#') return;
+	e.preventDefault();
+	
+	if(path.substr(0, 1) == '#') return;
 	
 	$.ajax({
 		method: 'GET',
@@ -37,8 +37,6 @@ $('a').click(function(e) {
 	
 	// altera URL
 	window.history.pushState("string", "Title", "#" + path);
-	
-	e.preventDefault();
 });
 
 $('.sidenav > li > a[href=' + currentPath + ']').click();
@@ -55,6 +53,7 @@ FastClick.attach(document.body);
 function getPath() {
 	let currentUrl 	= document.URL;
 	let hashIndex	= currentUrl.lastIndexOf('#');
+	let urlPath		= currentUrl.substr(hashIndex + 1);
 	
-	return hashIndex == -1 ? "home" : currentUrl.substr(hashIndex + 1);
+	return hashIndex == -1 || urlPath == '' ? 'home' : urlPath;
 }
