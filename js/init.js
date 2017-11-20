@@ -6,11 +6,13 @@ let $navbar			= $('.navbar-fixed');
 let path			= '';
 let $tabs			= $('.tabs');
 let $window			= $(window);
+let $this			= '';
+let navbarSize		= '-56';
 
 // SPA
 $('a').click(function(e) {
-	let $this	= $(this)
-	path 		= $this.attr('href');
+	$this	= $(this);
+	path 	= $this.attr('href');
 	
 	// scroll até o topo da página
 	window.scrollTo(0, 0);
@@ -30,33 +32,31 @@ $('a').click(function(e) {
 		}
 	});
 	
-	// navbar scroll
-	if(path == 'home') {
-		$window.off('scroll');
-		$navbar.attr('style', 'top: 0;');
-	} else {
-		$window.scroll(function(){
-			st = $(this).scrollTop();
-			$navbar.attr('style', 'top: ' + (st > lastScrollTop ? '-56' : '0') + 'px;');
-			lastScrollTop = st;
-		});
-	}
-	
 	// fecha o menu lateral
 	sidenav.close();
 	
+	// altera URL
+	window.history.pushState("string", "Title", "#" + path);
+	
 	// remove abas na home page
-	$('.nav-content').attr('style', 'display: ' + (path == 'home' ? 'none' : 'block') + ';');
+	$('.nav-content').attr('style', 'display: ' + (path == 'home' ? 'none' : 'block') + ';')
+	
 	
 	// ativa item do menu
 	$('.sidenav li.active').removeClass('active');
 	$this.parent().addClass('active');
 	
-	// altera URL
-	window.history.pushState("string", "Title", "#" + path);
+	// remove o menu retrátil na home page
+	navbarSize = path == 'home' ? '0' : '-56';
 });
 
 $('.sidenav > li > a[href=' + getPath() + ']').click();
+
+$window.scroll(function() {
+	st = $(this).scrollTop();
+	$navbar.attr('style', 'top: ' + (st > lastScrollTop ? navbarSize : '0') + 'px;');
+	lastScrollTop = st;
+});
 
 FastClick.attach(document.body);
 
