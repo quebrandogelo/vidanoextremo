@@ -1,0 +1,32 @@
+{
+  "name": "Polo Sul",
+  "short_name": "Polo Sul",
+  "icons": [{
+    "src": "img/icon.jpg",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "img/icon.jpg",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "img/icon.jpg",
+      "sizes": "152x152",
+      "type": "image/png"
+    }, {
+      "src": "img/icon.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icon.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "gcm_sender_id": "103953800507",
+  "display": "standalone",
+  "background_color": "#BBDEFB",
+  "theme_color": "#BBDEFB"
+}

@@ -41,7 +41,6 @@ $('a').click(function(e) {
 	// remove abas na home page
 	$('.nav-content').attr('style', 'display: ' + (path == 'home' ? 'none' : 'block') + ';')
 	
-	
 	// ativa item do menu
 	$('.sidenav li.active').removeClass('active');
 	$this.parent().addClass('active');

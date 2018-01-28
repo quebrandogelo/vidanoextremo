@@ -5,21 +5,15 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="description" content="Apresentação do Polo Sul">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<!-- Add to homescreen for Chrome on Android -->
-		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="theme-color" content="">
-		
-		<!-- Add to homescreen for Safari on iOS -->
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-title" content="Shopping">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		
 		<title>Polo Sul</title>
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.1/css/materialize.min.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="css/style.css">
+		
+		<link rel="manifest" href="manifest.json">
 	</head>
 
 	<body>
@@ -69,5 +63,15 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script src="js/fastclick.js"></script>
 		<script src="js/init.js"></script>
+		
+		<script>
+			if('serviceWorker' in navigator) {
+				navigator.serviceWorker
+					.register('service-worker.js')
+					.then(function(registration) {
+						console.log('Service Worker Registered');
+					});
+			}
+		</script>
 	</body>
 </html>
