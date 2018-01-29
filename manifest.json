@@ -2,7 +2,7 @@
 	"background_color": "#BBDEFB",
 	"description": "",
 	"display": "standalone",
-	"gcm_sender_id": "12344551212",
+	"gcm_sender_id": "",
 	"gcm_user_visible_only": true,
 	"icons": [{
 		"src": "img/icon.jpg",
@@ -12,6 +12,6 @@
 	"name": "Polo Sul",
 	"orientation": "portrait",
 	"short_name": "Polo Sul",
-	"start_url": "/",
+	"start_url": "/index.html",
 	"theme_color": "#BBDEFB"
 }
