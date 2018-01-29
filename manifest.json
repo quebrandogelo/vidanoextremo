@@ -7,7 +7,7 @@
 	"icons": [{
 		"src": "img/icon.jpg",
 		"sizes": "192x192",
-		"type": "image/jpg"
+		"type": "image/jpeg"
 	}],
 	"name": "Polo Sul",
 	"orientation": "portrait",
