@@ -5,9 +5,9 @@
 	"gcm_sender_id": "12344551212",
 	"gcm_user_visible_only": true,
 	"icons": [{
-		"src": "img/flat-faces-icons-circle-6-min.png",
+		"src": "img/icon.jpg",
 		"sizes": "192x192",
-		"type": "image/png"
+		"type": "image/jpg"
 	}],
 	"name": "Polo Sul",
 	"orientation": "portrait",
