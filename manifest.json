@@ -12,6 +12,6 @@
 	"name": "Polo Sul",
 	"orientation": "portrait",
 	"short_name": "Polo Sul",
-	"start_url": "/index.html",
+	"start_url": "index.html",
 	"theme_color": "#BBDEFB"
 }
